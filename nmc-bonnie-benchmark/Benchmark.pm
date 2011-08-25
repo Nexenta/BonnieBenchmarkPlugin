@@ -19,7 +19,7 @@
 # CDDL HEADER END
 #
 #
-# Copyright (C) 2006-2009 Nexenta Systems, Inc.
+# Copyright (C) 2005-2011 Nexenta Systems, Inc.
 # All rights reserved.
 #
 
@@ -73,18 +73,18 @@ Usage: [-p numprocs] [-b blocksize] [-q] [-s]
    -q	             Quick mode. Warning: filesystem cache might
                      affect (and distort) results.
 
-This benchmark is based on a popular Bonnie benchmark written originally 
+This benchmark is based on a popular Bonnie benchmark written originally
 by Tim Bray:
 
 http://www.textuality.com/bonnie
 
 Sequential Write (SEQ-WRITE):
-    1. Block. The file is created using write(2). The CPU overhead 
+    1. Block. The file is created using write(2). The CPU overhead
        should be just the OS file space allocation.
-    2. Rewrite. Each <blocksize> of the file is read with read(2), 
-       dirtied, and rewritten with write(2), requiring an lseek(2). 
+    2. Rewrite. Each <blocksize> of the file is read with read(2),
+       dirtied, and rewritten with write(2), requiring an lseek(2).
        Since no space allocation is done, and the I/O is well-localized,
-       this should test the effectiveness of the filesystem cache and 
+       this should test the effectiveness of the filesystem cache and
        the speed of data transfer.
 
 Sequential Read (SEQ-READ):
@@ -92,9 +92,9 @@ Sequential Read (SEQ-READ):
     test of sequential input performance.
 
 Random Seeks (RND-SEEKS):
-    This test runs SeekProcCount processes (default 3) in parallel, 
-    doing a total of 8000 lseek()s to locations in the file specified 
-    by random(). In each case, the block is read with read(2). 
+    This test runs SeekProcCount processes (default 3) in parallel,
+    doing a total of 8000 lseek()s to locations in the file specified
+    by random(). In each case, the block is read with read(2).
     In 10% of cases, it is dirtied and written back with write(2).
 
 Example:
@@ -107,7 +107,7 @@ Example:
   162MB/s    8%    150MB/s    6%     188MB/s   9%     430/sec
   158MB/s    7%    148MB/s    8%     184MB/s   7%     440/sec
   --------- ----   ---------  ----   --------- ----   ---------
-  320MB/s    15%   298MB/s    13%    372MB/s   16%    870/sec 
+  320MB/s    15%   298MB/s    13%    372MB/s   16%    870/sec
 
 
 See also: 'dtrace'
@@ -231,7 +231,7 @@ sub volume_benchmark
 	$block = 32768 if (!defined $block);
 	$block = NZA::Common::to_bytes($block);
 	$block = 32768 if (!$block || $block !~ /^\d+$/);
-	
+
 	my $b_param = $sync ? '-b' : '';
 
 	if (defined $vol && $vol eq $NZA::SYSPOOL) {
@@ -250,7 +250,7 @@ sub volume_benchmark
 		print_out("Volume '$vol' is the only available volume, starting benchmark...\n");
 		sleep 1;
 	}
-	
+
 	my $prompt = "Please select a volume to benchmark for performance";
 	return 0 if (!NMC::Util::input_field("Select volume to run Bonnie++ file I/O benchmark",
 					   0,
@@ -277,7 +277,7 @@ sub volume_benchmark
 			if ($needed_mb > $vol_avail_mb && 0) {
 				die "Volume '$vol' does not have enough free space to run '$benchmark_name'. Needed: approximately ${needed_mb}MB. Available: ${vol_avail_mb}MB.";
 			}
-			
+
 			$size = int($ram_total_mb / 2);
 			$s_param = "-r 0 -s $size:$block";
 		}
@@ -319,9 +319,9 @@ sub volume_benchmark
 	my $scratch_dir = "$vol/.nmc-bonnie-benchmark";
 	my $resfile = "/tmp/nmc-bonnie-benchmark.out.$$";
 
-	# 
+	#
 	# Set output autoflush on
-	# 
+	#
 	my $oldfh = select(STDOUT); my $fl = $|; $| = 1; select($oldfh);
 
 	goto _exit_bmed unless (_benchmark_begin($scratch_dir));

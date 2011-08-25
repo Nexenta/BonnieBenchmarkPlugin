@@ -1,12 +1,12 @@
 Source: nmc-bonnie-benchmark
 Section: base
 Priority: optional
-Maintainer: Erast Benson <erast@gnusolaris.org>
-Build-Depends: debhelper(>=4.9.5gnusol5)
+Maintainer: Nexenta Systems <maintainer@nexenta.com>
+Build-Depends: debhelper(>= 40-0-0)
 
 Package: nmc-bonnie-benchmark
-Architecture: solaris-i386
-Depends: ${shlibs:Depends}, nmc (>= 1.1.9), bonnie++
+Architecture: any
+Depends: ${perl:Depends}, nmc (>= 40-0-0), bonnie++
 Description: [:nxplugin::nmc:!bonnie-benchmark] bonnie++ benchmark extension for NMC
  bonnie++ benchmark integration with NMC (console)
  .

@@ -19,7 +19,7 @@
 # CDDL HEADER END
 #
 #
-# Copyright (C) 2006-2009 Nexenta Systems, Inc.
+# Copyright (C) 2005-2011 Nexenta Systems, Inc.
 # All rights reserved.
 #
 # METAFILE FOR NMS
@@ -27,15 +27,14 @@
 package Plugin::NmcBonnieBenchmark;
 use base qw(NZA::Plugin);
 
-$Plugin::CLASS				= 'NmcBonnieBenchmark';
+$Plugin::CLASS = 'NmcBonnieBenchmark';
 
-$Plugin::NmcBonnieBenchmark::NAME		= 'nmc-bonnie-benchmark';
-$Plugin::NmcBonnieBenchmark::DESCRIPTION	= 'Bonnie++ benchmark extension for NMC';
-$Plugin::NmcBonnieBenchmark::LICENSE		= 'Open Source (CDDL)';
-$Plugin::NmcBonnieBenchmark::AUTHOR		= 'Nexenta Systems, Inc';
-$Plugin::NmcBonnieBenchmark::VERSION		= '1.4';
-$Plugin::NmcBonnieBenchmark::GROUP		= '!bonnie-benchmark';
-$Plugin::NmcBonnieBenchmark::LOADER		= 'Benchmark.pm';
-@Plugin::NmcBonnieBenchmark::FILES		= ('Benchmark.pm');
+$Plugin::NmcBonnieBenchmark::NAME           = 'nmc-bonnie-benchmark';
+$Plugin::NmcBonnieBenchmark::DESCRIPTION    = 'Bonnie++ benchmark extension for NMC';
+$Plugin::NmcBonnieBenchmark::LICENSE        = 'Open Source (CDDL)';
+$Plugin::NmcBonnieBenchmark::AUTHOR         = 'Nexenta Systems, Inc';
+$Plugin::NmcBonnieBenchmark::GROUP          = '!bonnie-benchmark';
+$Plugin::NmcBonnieBenchmark::LOADER         = 'Benchmark.pm';
+@Plugin::NmcBonnieBenchmark::FILES          = ('Benchmark.pm');
 
 1;

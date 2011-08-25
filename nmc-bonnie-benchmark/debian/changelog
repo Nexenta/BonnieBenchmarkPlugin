@@ -1,3 +1,11 @@
+nmc-bonnie-benchmark (40-0-0) unstable; urgency=low
+
+  * Migrated to NexentaStor 4.x
+  * Changed maintainer to Nexenta Systems
+  * Fixed debian/rules to use new debhelper
+
+ -- Nexenta Systems <maintainer@nexenta.com>  Thu, 25 Aug 2011 18:00:15 +0400
+
 nmc-bonnie-benchmark (1.4) elatte; urgency=low
 
   * fix CPU summary calculation
