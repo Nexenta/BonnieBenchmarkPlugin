@@ -2,11 +2,11 @@ Source: nmc-bonnie-benchmark
 Section: base
 Priority: optional
 Maintainer: Nexenta Systems <maintainer@nexenta.com>
-Build-Depends: debhelper(>= 40-0-0)
+Build-Depends: debhelper(>= 40-0-11)
 
 Package: nmc-bonnie-benchmark
 Architecture: any
-Depends: ${perl:Depends}, nmc (>= 40-0-0), bonnie++
+Depends: nmc (>= 40-0-0), benchmark-bonnieplus
 Description: [:nxplugin::nmc:!bonnie-benchmark] bonnie++ benchmark extension for NMC
  bonnie++ benchmark integration with NMC (console)
  .
